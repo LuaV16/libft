@@ -6,11 +6,11 @@
 /*   By: lvargas- <lvargas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 12:10:39 by lvargas-          #+#    #+#             */
-/*   Updated: 2025/04/08 12:50:29 by lvargas-         ###   ########.fr       */
+/*   Updated: 2025/04/09 15:29:32 by lvargas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(unsigned int c)
+int	ft_isalpha(int c)
 {
 	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
 		return (1024);

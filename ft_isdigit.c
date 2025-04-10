@@ -6,11 +6,11 @@
 /*   By: lvargas- <lvargas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 12:26:54 by lvargas-          #+#    #+#             */
-/*   Updated: 2025/04/08 12:50:41 by lvargas-         ###   ########.fr       */
+/*   Updated: 2025/04/09 15:29:46 by lvargas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(unsigned int c)
+int	ft_isdigit(int c)
 {
 	if (c >= 48 && c <= 57)
 		return (2048);

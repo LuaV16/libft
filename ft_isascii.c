@@ -6,11 +6,11 @@
 /*   By: lvargas- <lvargas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 15:43:52 by lvargas-          #+#    #+#             */
-/*   Updated: 2025/04/08 15:48:45 by lvargas-         ###   ########.fr       */
+/*   Updated: 2025/04/09 15:30:08 by lvargas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isascii(unsigned int c)
+int	ft_isascii(int c)
 {
 	if (c >= 0 && c <= 127)
 		return (1);

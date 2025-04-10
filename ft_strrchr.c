@@ -1,20 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lvargas- <lvargas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/08 12:37:33 by lvargas-          #+#    #+#             */
-/*   Updated: 2025/04/09 15:54:25 by lvargas-         ###   ########.fr       */
+/*   Created: 2025/04/10 13:29:04 by lvargas-          #+#    #+#             */
+/*   Updated: 2025/04/10 14:17:23 by lvargas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalnum(int c)
+char	*ft_strrchr(const char *s, int c)
 {
-	if (ft_isalpha(c) || ft_isdigit(c))
-		return (8);
-	return (0);
+	char *coincidence;
+	char *ptr;
+	int coincidence_n;
+
+	coincidence_n = 0;
+	ptr = (char *)s;
+	while (*ptr)
+	{
+		if (*ptr == c)
+		{
+			coincidence = ptr;
+			coincidence_n++;
+		}
+		ptr++;
+	}
+	if (coincidence_n == 0)
+	{
+        if (c == '\0')
+            return (ptr);
+		return (NULL);
+	}
+	return (coincidence);
 }

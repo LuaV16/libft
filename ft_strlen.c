@@ -6,11 +6,13 @@
 /*   By: lvargas- <lvargas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 16:00:09 by lvargas-          #+#    #+#             */
-/*   Updated: 2025/04/08 16:08:51 by lvargas-         ###   ########.fr       */
+/*   Updated: 2025/04/10 10:27:32 by lvargas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned long	ft_strlen(const char *s)
+#include "libft.h"
+
+size_t	ft_strlen(const char *s)
 {
 	int	len;
 

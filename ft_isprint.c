@@ -6,11 +6,11 @@
 /*   By: lvargas- <lvargas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 15:53:43 by lvargas-          #+#    #+#             */
-/*   Updated: 2025/04/08 15:58:08 by lvargas-         ###   ########.fr       */
+/*   Updated: 2025/04/09 15:30:22 by lvargas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isprint(unsigned int c)
+int	ft_isprint(int c)
 {
 	if (c >= 32 && c <= 126)
 		return (16384);
