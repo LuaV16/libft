@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lvargas- <lvargas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/08 17:49:23 by lvargas-          #+#    #+#             */
-/*   Updated: 2025/04/14 13:42:53 by lvargas-         ###   ########.fr       */
+/*   Created: 2025/04/11 12:00:10 by lvargas-          #+#    #+#             */
+/*   Updated: 2025/04/14 16:48:47 by lvargas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	unsigned long	i;
-	unsigned char	*ptrdest;
-	unsigned char	*ptrsrc;
+	const unsigned char	*p1;
+	const unsigned char	*p2;
 
-	if (dest == NULL && src == NULL)
+	p1 = s1;
+	p2 = s2;
+	while (n > 0)
 	{
-		return (NULL);
+		if (*p1 != *p2)
+			return (*p1 - *p2);
+		n--;
+		p1++;
+		p2++;
 	}
-	ptrdest = (unsigned char *)dest;
-	ptrsrc = (unsigned char *)src;
-	i = 0;
-	while (i < n)
-	{
-		*ptrdest = *ptrsrc;
-		ptrdest++;
-		ptrsrc++;
-		i++;
-	}
-	return (dest);
+	return (0);
 }

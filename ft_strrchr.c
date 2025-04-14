@@ -6,7 +6,7 @@
 /*   By: lvargas- <lvargas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 13:29:04 by lvargas-          #+#    #+#             */
-/*   Updated: 2025/04/10 14:17:23 by lvargas-         ###   ########.fr       */
+/*   Updated: 2025/04/14 14:51:03 by lvargas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,20 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	char *coincidence;
-	char *ptr;
-	int coincidence_n;
+	char	*coincidence;
+	char	*ptr;
 
-	coincidence_n = 0;
+	coincidence = NULL;
 	ptr = (char *)s;
-	while (*ptr)
+	while (1)
 	{
-		if (*ptr == c)
+		if ((unsigned char)*ptr == (unsigned char)c)
 		{
 			coincidence = ptr;
-			coincidence_n++;
 		}
+		if (*ptr == '\0')
+			break ;
 		ptr++;
-	}
-	if (coincidence_n == 0)
-	{
-        if (c == '\0')
-            return (ptr);
-		return (NULL);
 	}
 	return (coincidence);
 }
