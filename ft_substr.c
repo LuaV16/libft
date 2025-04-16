@@ -1,34 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lvargas- <lvargas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/14 16:49:08 by lvargas-          #+#    #+#             */
-/*   Updated: 2025/04/15 12:45:41 by lvargas-         ###   ########.fr       */
+/*   Created: 2025/04/15 17:00:03 by lvargas-          #+#    #+#             */
+/*   Updated: 2025/04/15 17:35:19 by lvargas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *big, const char *little, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
+	char	*substr;
 	size_t	n;
-	size_t	i;
 
-	i = 0;
-	n = 0;
-	if (!*little)
-		return ((char *)big);
-	while (big[n] && n < len)
+	if (start >= ft_strlen(s))
 	{
-		i = 0;
-		while (little[i] && (n + i) < len && big[n + i] == little[i])
-			i++;
-		if (!little[i])
-			return ((char *)(big + n));
+		return (ft_strdup(""));
+	}
+	if (len > ft_strlen(s) - start)
+		len = ft_strlen(s) - start;
+	n = 0;
+	substr = (char *)malloc((len + 1) * sizeof(char));
+	if (!substr)
+		return (NULL);
+	while (n < len)
+	{
+		substr[n] = s[start];
+		start++;
 		n++;
 	}
-	return (NULL);
+	substr[n] = '\0';
+	return (substr);
 }

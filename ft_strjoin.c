@@ -1,34 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lvargas- <lvargas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/14 16:49:08 by lvargas-          #+#    #+#             */
-/*   Updated: 2025/04/15 12:45:41 by lvargas-         ###   ########.fr       */
+/*   Created: 2025/04/16 12:08:29 by lvargas-          #+#    #+#             */
+/*   Updated: 2025/04/16 12:36:41 by lvargas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *big, const char *little, size_t len)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
 	size_t	n;
 	size_t	i;
+	char	*ptr;
 
-	i = 0;
 	n = 0;
-	if (!*little)
-		return ((char *)big);
-	while (big[n] && n < len)
+	i = 0;
+	ptr = (char *)malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
+	if (!ptr)
+		return (NULL);
+	while (s1[n] != '\0')
 	{
-		i = 0;
-		while (little[i] && (n + i) < len && big[n + i] == little[i])
-			i++;
-		if (!little[i])
-			return ((char *)(big + n));
+		ptr[n] = (char)s1[n];
 		n++;
 	}
-	return (NULL);
+	while (s2[i] != '\0')
+	{
+		ptr[n] = (char)s2[i];
+		i++;
+		n++;
+	}
+	ptr[n] = '\0';
+	return (ptr);
 }

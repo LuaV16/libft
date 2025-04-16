@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lvargas- <lvargas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/14 16:49:08 by lvargas-          #+#    #+#             */
-/*   Updated: 2025/04/15 12:45:41 by lvargas-         ###   ########.fr       */
+/*   Created: 2025/04/15 16:35:01 by lvargas-          #+#    #+#             */
+/*   Updated: 2025/04/16 12:38:12 by lvargas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *big, const char *little, size_t len)
+char	*ft_strdup(const char *s)
 {
 	size_t	n;
-	size_t	i;
+	char	*ptr;
 
-	i = 0;
 	n = 0;
-	if (!*little)
-		return ((char *)big);
-	while (big[n] && n < len)
+	ptr = (char *)malloc((ft_strlen(s) + 1) * sizeof(char));
+	if (!ptr)
+		return (NULL);
+	while (s[n])
 	{
-		i = 0;
-		while (little[i] && (n + i) < len && big[n + i] == little[i])
-			i++;
-		if (!little[i])
-			return ((char *)(big + n));
+		ptr[n] = (char)s[n];
 		n++;
 	}
-	return (NULL);
+	ptr[n] = '\0';
+	return (ptr);
 }

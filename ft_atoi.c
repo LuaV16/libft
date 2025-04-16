@@ -1,34 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lvargas- <lvargas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/14 16:49:08 by lvargas-          #+#    #+#             */
-/*   Updated: 2025/04/15 12:45:41 by lvargas-         ###   ########.fr       */
+/*   Created: 2025/04/15 12:46:23 by lvargas-          #+#    #+#             */
+/*   Updated: 2025/04/15 13:20:48 by lvargas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *big, const char *little, size_t len)
+int	ft_atoi(const char *nptr)
 {
-	size_t	n;
-	size_t	i;
+	int	n;
+	int	negative;
 
-	i = 0;
+	negative = 0;
 	n = 0;
-	if (!*little)
-		return ((char *)big);
-	while (big[n] && n < len)
+	while (*nptr == ' ' || *nptr == '\n' || *nptr == '\t' || *nptr == '\v'
+		|| *nptr == '\f' || *nptr == '\r')
+		nptr++;
+	if (*nptr == '+' || *nptr == '-')
 	{
-		i = 0;
-		while (little[i] && (n + i) < len && big[n + i] == little[i])
-			i++;
-		if (!little[i])
-			return ((char *)(big + n));
-		n++;
+		if (*nptr == '-')
+			negative = 1;
+		nptr++;
 	}
-	return (NULL);
+	while (ft_isdigit(*nptr))
+	{
+		n += *nptr - '0';
+		if (ft_isdigit(*(nptr + 1)))
+			n = n * 10;
+		nptr++;
+	}
+	if (negative == 1)
+		n *= -1;
+	return (n);
 }
