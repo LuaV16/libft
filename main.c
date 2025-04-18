@@ -6,44 +6,43 @@
 /*   By: lvargas- <lvargas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 15:47:55 by lvargas-          #+#    #+#             */
-/*   Updated: 2025/04/16 15:46:48 by lvargas-         ###   ########.fr       */
+/*   Updated: 2025/04/18 18:46:41 by lvargas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*#include "libft.h"*/
+/*#include "libft.h"
 #include <ctype.h>
-/*#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>*/
+*/
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <unistd.h>
 
-static size_t   ft_count(char const *s, char c)
+void	ft_putchar_fd(char c, int fd)
 {
-    size_t  n;
-    size_t  i;
-    int check;
+	write(fd, &c, 1);
+}
 
-    check = 0;
-    i = 0;
-    n = 0;
-    while (s[i] != '\0')
-    {
-        if (s[i] != c && check == 0)
-        {
-            check = 1;
-            n += 1;            
-        }
-        if (s[i] == c && check == 1)
-        {
-            check = 0;
-        }
-        i++;
-    }
-    return (n);
+void	ft_putnbr_fd(int n, int fd)
+{
+	long	num;
+
+	num = n;
+	if (num < 0)
+	{
+		write(fd, "-", 1);
+		num *= -1;
+	}
+	if (num >= 10)
+	{
+		ft_putnbr_fd(num / 10, fd);
+	}
+	ft_putchar_fd((num % 10) + '0', fd);
 }
 
 int	main(void)
 {
-	printf("%zu", ft_count("cccccaacacacaaa", 'c'));
+	ft_putnbr_fd(-100, 1);
 	return (0);
 }
