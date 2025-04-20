@@ -3,11 +3,28 @@ I'm building my own C library by reimplementing essential standard functions fro
 In this README, I’ll include a brief summary of what each function does, as well as an explanation of how I built the Makefile used to compile the library.
 
 
-**Table of Contents**
+## Table of Contents
 
-[TOC]
+- [Standard functions](#standard-functions)  
+  - [Character check functions](#character-check-functions)  
+  - [Memory functions](#memory-functions)  
+  - [String functions](#string-functions)  
+  - [Conversion functions](#conversion-functions)  
+  - [Memory allocation](#memory-allocation)  
 
-##Standard functions
+- [Aditional functions](#aditional-functions)  
+  - [String manipulation](#string-manipulation)  
+  - [Conversion](#conversion)  
+  - [File descriptor output](#file-descriptor-output)  
+
+- [Linked List Functions](#linked-list-functions)  
+  - [List creation and basic operations](#list-creation-and-basic-operations)  
+  - [List deletion and cleanup](#list-deletion-and-cleanup)  
+
+- [Makefile](#makefile)
+
+
+## Standard functions
 
 This section includes reimplementations of commonly used functions from the C standard library. All of them have been written from scratch, without using the original implementations, in order to better understand how they work. These functions cover character checks, memory operations, and string manipulation, and are a fundamental part of this custom C library.
 
@@ -46,7 +63,7 @@ This section includes reimplementations of commonly used functions from the C st
 
 
 
-##Aditional functions
+## Aditional functions
 
 Besides the standard `libft` functions, I’ve also added a bunch of extra utilities that are pretty common and useful in C. Most of them are for working with strings, managing memory, or printing to file descriptors. Here's a quick overview of what each one does:
 
@@ -93,7 +110,7 @@ typedef struct s_list
 - **`ft_lstiter`** – Iterates through the list `lst`, applying the function `f` to the content of each node.
 - **`ft_lstmap`** – Creates a new list by applying the function `f` to the content of each node in `lst`. If allocation fails, `del` is used to free the content of the new list.
 
-##Makefile
+## Makefile
 
 To make compiling the library easier and more efficient, I created a Makefile. This allows me to build the project just by running make in the terminal, without having to type out the compilation commands every time.
 
